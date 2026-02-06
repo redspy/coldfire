@@ -72,8 +72,8 @@ ul {
 }
 
 .main-nav ul {
-    display: flex;
-    gap: 40px;
+    display: none;
+    /* Hide inline nav globally */
 }
 
 .main-nav a {
@@ -100,8 +100,102 @@ ul {
 }
 
 .menu-icon {
-    display: none;
+    display: block;
+    /* Always show menu icon */
     cursor: pointer;
+    z-index: 2000;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-icon span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+}
+
+.menu-icon span:first-child {
+    top: 0;
+}
+
+.menu-icon span:last-child {
+    bottom: 0;
+}
+
+/* Menu Active State (X icon) */
+.menu-icon.active span:first-child {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-icon.active span:last-child {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+/* Popup Menu */
+.overlay-menu {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 300px;
+    height: auto;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: all 0.4s ease;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.overlay-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.overlay-menu ul {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.overlay-menu a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.overlay-menu a:hover {
+    color: var(--color-text-secondary);
+    padding-left: 10px;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .overlay-menu {
+        width: 100%;
+        border-left: none;
+    }
 }
 
 /* Hero Section */

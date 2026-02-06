@@ -1,6 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Reveal Animation
-    const revealElements = document.querySelectorAll('.scroll-reveal');
+    // 1. Overlay Menu Injection & Logic
+    const initOverlayMenu = () => {
+        // Inject Menu HTML
+        const menuHTML = `
+            <div class="overlay-menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#collection">Sunglasses</a></li>
+                        <li><a href="template.html">Collections</a></li>
+                        <li><a href="template.html">Stores</a></li>
+                        <li><a href="template.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', menuHTML);
+
+        // Toggle Logic
+        const menuIcon = document.querySelector('.menu-icon');
+        const overlayMenu = document.querySelector('.overlay-menu');
+        const menuLinks = document.querySelectorAll('.overlay-menu a');
+
+        if (menuIcon && overlayMenu) {
+            menuIcon.addEventListener('click', () => {
+                menuIcon.classList.toggle('active');
+                overlayMenu.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuIcon.classList.remove('active');
+                    overlayMenu.classList.remove('active');
+                });
+            });
+        }
+    };
+
+    initOverlayMenu();
+
+
+    // 2. Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.scroll-reveal, .fade-in-up');
 
     const revealOnScroll = () => {
         const windowHeight = window.innerHeight;
@@ -16,19 +58,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    // Initial check
-    revealOnScroll();
+    revealOnScroll(); // Initial check
 
-    // Sticky Header Effect
+
+    // 3. Sticky Header Effect
     const header = document.querySelector('.site-header');
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-
         if (currentScroll <= 0) {
-            header.classList.remove('scroll-up');
+            header.classList.remove('scroll-up', 'scroll-down');
             header.style.background = 'rgba(10, 10, 10, 0.8)';
+            header.style.transform = 'translateY(0)';
             return;
         }
 
@@ -45,26 +87,5 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.background = 'rgba(10, 10, 10, 0.95)';
         }
         lastScroll = currentScroll;
-    });
-
-    // Mobile Menu Toggle (Basic implementation)
-    const menuIcon = document.querySelector('.menu-icon');
-    const nav = document.querySelector('.main-nav');
-
-    menuIcon.addEventListener('click', () => {
-        // Toggle logic for mobile menu
-        // For now, we'll just toggle a class to show/hide
-        // Note: CSS for .active state needs to be added for full mobile menu support
-        if (nav.style.display === 'block') {
-            nav.style.display = 'none';
-        } else {
-            nav.style.display = 'block';
-            nav.style.position = 'absolute';
-            nav.style.top = '80px';
-            nav.style.left = '0';
-            nav.style.width = '100%';
-            nav.style.background = '#000';
-            nav.style.padding = '20px';
-        }
     });
 });
