@@ -45,4 +45,51 @@ python3 -m http.server 8000
 브라우저 주소창에 `http://localhost:8000`을 입력하여 접속합니다.
 
 ---
+
+## ➕ 신규 안경/선글라스 추가 및 페이지 구성 방법
+
+이 프로젝트는 확장성을 고려하여 설계되었습니다. 새로운 안경이나 선글라스를 추가하려면 아래 단계를 따르세요.
+
+### 1단계: 이미지 에셋 준비
+1. 새로운 제품 이미지(`png` 또는 `jpg`)를 준비합니다.
+2. 배경이 제거된 누끼 이미지나, 깨끗한 배경의 제품 샷이 가장 좋습니다.
+3. 이미지를 `assets/images/` 폴더에 위치시킵니다.
+    - 예: `assets/images/glasses_04.png`
+
+### 2단계: 상세 페이지 생성 (`product-cfXX.html`)
+기존의 제품 페이지(`product-cf01.html`)를 복사하여 새로운 파일을 만듭니다.
+```bash
+cp product-cf01.html product-cf04.html
+```
+
+생성된 파일(`product-cf04.html`)을 열어 다음 내용을 수정합니다:
+- **이미지 경로**: `src` 속성을 새 이미지 경로로 변경 (예: `assets/images/glasses_04.png`)
+- **제품명**: `<h1>` 태그 내의 제품명 변경 (예: CF-04 NEON)
+- **가격**: 가격 정보 수정
+- **설명**: 제품에 맞는 매력적인 설명으로 변경
+
+### 3단계: 메인 페이지(`index.html`)에 제품 추가
+`index.html` 파일을 열고 `.product-grid` 섹션을 찾습니다.
+가장 마지막 `<a>...</a>` 태그(제품 카드) 뒤에 아래 코드를 추가합니다.
+
+```html
+<!-- 새로운 제품 카드 -->
+<a href="product-cf04.html" class="product-card scroll-reveal">
+    <div class="product-image-wrapper">
+        <img src="assets/images/glasses_04.png" alt="제품 설명">
+        <div class="product-overlay">
+            <span class="btn-shop">VIEW DETAILS</span>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>제품명 (CF-04)</h3>
+        <p class="price">$350.00</p>
+    </div>
+</a>
+```
+
+### 4단계: 확인
+웹사이트를 새로고침하여 메인 페이지 그리드에 새 제품이 추가되었는지, 클릭 시 상세 페이지로 잘 이동하는지 확인합니다.
+
+---
 © 2026 Cold Fire. All rights reserved.
