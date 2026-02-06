@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Fire | Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .template-body {
+            padding-top: 150px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .placeholder-content {
+            border: 1px dashed #444;
+            padding: 50px;
+            width: 80%;
+            max-width: 800px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">COLD FIRE</a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="template.html?page=sunglasses">선글라스</a></li>
+                <li><a href="template.html?page=glasses">안경</a></li>
+                <li><a href="template.html?page=collections">컬렉션</a></li>
+                <li><a href="template.html?page=stores">스토어</a></li>
+                <li><a href="template.html?page=more">더 알아보기</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="template-body">
+        <h1 class="page-title" id="pageTitle">Page Title</h1>
+        <div class="placeholder-content">
+            <p>이 페이지는 확장을 위한 예시 템플릿입니다.</p>
+            <p id="pageDesc">콘텐츠를 추가할 수 있습니다.</p>
+        </div>
+        <a href="index.html" style="margin-top: 50px; text-decoration: underline;">메인으로 돌아가기</a>
+    </main>
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Cold Fire. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple script to change title based on URL param
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get('page');
+        const product = urlParams.get('product');
+
+        const titleEl = document.getElementById('pageTitle');
+        const descEl = document.getElementById('pageDesc');
+
+        if (page) {
+            titleEl.textContent = page.toUpperCase();
+            descEl.textContent = `${page} 카테고리 상세 페이지입니다.`;
+        } else if (product) {
+            titleEl.textContent = product.toUpperCase();
+            descEl.textContent = `제품 ${product}의 상세 정보 페이지입니다.`;
+        } else {
+            titleEl.textContent = "TEMPLATE";
+        }
+    </script>
+</body>
+
+</html>
