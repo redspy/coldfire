@@ -1,5 +1,5 @@
-# 🕶️ Cold Fire
-> 프리미엄 선글라스 브랜드 **Cold Fire**의 2026 컬렉션 웹사이트입니다. 모던하고 미니멀한 다크 테마 디자인을 통해 브랜드의 고급스러움을 표현했습니다.
+# 🕶️ XIZE EYEWEAR DESIGN
+> 프리미엄 선글라스 브랜드 **XIZE EYEWEAR DESIGN**의 2026 컬렉션 웹사이트입니다. 모던하고 미니멀한 다크 테마 디자인을 통해 브랜드의 고급스러움을 표현했습니다.
 
 ### 🔥 **Live Demo**: [https://redspy.github.io/coldfire](https://redspy.github.io/coldfire)
 
@@ -92,4 +92,4 @@ cp product-cf01.html product-cf04.html
 웹사이트를 새로고침하여 메인 페이지 그리드에 새 제품이 추가되었는지, 클릭 시 상세 페이지로 잘 이동하는지 확인합니다.
 
 ---
-© 2026 Cold Fire. All rights reserved.
+© 2026 XIZE EYEWEAR DESIGN. All rights reserved.
