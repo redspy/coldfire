@@ -65,6 +65,27 @@ ul {
     transition: transform 0.3s ease;
 }
 
+.header-logo {
+    height: 24px;
+    width: auto;
+    display: block;
+}
+
+.footer-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero-brand-logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 .logo a {
     font-weight: 800;
     font-size: 1.5rem;
