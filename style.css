@@ -906,8 +906,8 @@ ul {
 .profile-header {
     background-image: url('assets/images/ceoPic.png');
     background-size: cover;
-    background-position: center;
-    /* Adjust if needed to focus on face/person */
+    background-position: center top;
+    /* Aligns to top to keep face visible on resize */
     background-repeat: no-repeat;
     padding: 100px 20px;
     text-align: center;
