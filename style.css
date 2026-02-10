@@ -801,51 +801,32 @@ ul {
 }
 
 /* Gallery - Reusing product grid or similar, but simpler */
+/* Post-Gallery Spacer */
 .about-gallery {
+    padding: 0;
+    margin-bottom: 0px;
+    background: #111;
+}
+
+/* 
+.gallery-item styles removed as they are replaced by portfolio-container 
+*/
+
+/* Career Timeline & Portfolio */
+.careers-content-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-}
-
-.gallery-item {
-    position: relative;
-    height: 500px;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    opacity: 0.7;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-    opacity: 1;
-}
-
-.gallery-text {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    z-index: 10;
-}
-
-.gallery-text h3 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-}
-
-/* Career Timeline */
-.career-list {
-    max-width: 800px;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Adjust ratio as needed */
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px;
     margin: 0 auto;
+    text-align: left;
+}
+
+.career-list {
     border-left: 1px solid #333;
     padding-left: 40px;
-    text-align: left;
 }
 
 .career-item {
@@ -875,6 +856,50 @@ ul {
     font-size: 1rem;
     color: var(--color-text-secondary);
     margin-bottom: 0.5rem;
+}
+
+.career-image {
+    position: sticky;
+    top: 100px;
+    /* Sticky scroll effect */
+}
+
+.career-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+/* Portfolio Gallery */
+.portfolio-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-image:hover {
+    transform: scale(1.01);
+}
+
+@media (max-width: 900px) {
+    .careers-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .career-image {
+        position: static;
+        margin-top: 40px;
+    }
 }
 
 /* Contact Grid */
