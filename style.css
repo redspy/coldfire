@@ -1036,39 +1036,45 @@ ul {
 /* Portfolio Page Styles (Glasses) */
 .portfolio-list {
     max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
+    margin: 80px auto;
+    padding: 0 40px;
 }
 
 .portfolio-project {
-    margin-bottom: 120px;
+    margin-bottom: 160px;
 }
 
 .project-info {
-    margin-bottom: 30px;
-    border-left: 3px solid var(--color-accent);
-    padding-left: 20px;
+    margin-bottom: 40px;
+    padding-left: 0;
+    /* Removed border for cleaner, cynical look */
+    text-align: left;
 }
 
 .project-info h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    color: var(--color-text-main);
 }
 
 .project-desc {
     font-size: 1.1rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.8;
+    max-width: 600px;
+    font-weight: 300;
 }
 
 .project-gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    /* Tighter gap for sophisticated look */
-    max-width: 800px;
-    /* Limit width for better proportion */
+    gap: 2px;
+    /* Minimal gap for 'glitch' or 'tight' feel */
+    width: 100%;
+    /* Full width of container */
+    max-width: 100%;
 }
 
 .project-img {
