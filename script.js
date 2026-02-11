@@ -86,4 +86,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         lastScroll = currentScroll;
     });
+
+    // 4. Image Lightbox (Preview)
+    const initLightbox = () => {
+        // Inject Lightbox HTML
+        const lightboxHTML = `
+            <div class="lightbox">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-content" src="" alt="Preview">
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImg = document.querySelector('.lightbox-content');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const projectImages = document.querySelectorAll('.project-img img');
+
+        // Open Lightbox
+        projectImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close Lightbox
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        // Close on click outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    };
+
+    initLightbox();
 });
