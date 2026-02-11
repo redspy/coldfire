@@ -995,71 +995,74 @@ ul {
     .process-grid {
         grid-template-columns: 1fr;
     }
+}
 
-    /* Portfolio Page Styles (Glasses) */
-    .portfolio-list {
-        max-width: 1200px;
-        margin: 60px auto;
-        padding: 0 20px;
-    }
+/* Portfolio Page Styles (Glasses) */
+.portfolio-list {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
 
-    .portfolio-project {
-        margin-bottom: 120px;
-    }
+.portfolio-project {
+    margin-bottom: 120px;
+}
 
-    .project-info {
-        margin-bottom: 30px;
-        border-left: 3px solid var(--color-accent);
-        padding-left: 20px;
-    }
+.project-info {
+    margin-bottom: 30px;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 20px;
+}
 
-    .project-info h3 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
+.project-info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 
-    .project-desc {
-        font-size: 1.1rem;
-        color: var(--color-text-secondary);
-        line-height: 1.6;
-    }
+.project-desc {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
 
+.project-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    /* Tighter gap for sophisticated look */
+    max-width: 800px;
+    /* Limit width for better proportion */
+}
+
+.project-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+    /* Square thumbnails */
+    background: #222;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-img:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
     .project-gallery-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        /* Tighter gap for sophisticated look */
-        max-width: 800px;
-        /* Limit width for better proportion */
     }
+}
 
-    .project-img {
-        position: relative;
-        overflow: hidden;
-        border-radius: 4px;
-        aspect-ratio: 1 / 1;
-        /* Square thumbnails */
-        background: #222;
-    }
-
-    .project-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-    }
-
-    .project-img:hover img {
-        transform: scale(1.05);
-    }
-
-    @media (max-width: 900px) {
-        .project-gallery-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
+/* Resume About Page Responsive styles */
+@media (max-width: 768px) {
     .about-gallery {
         grid-template-columns: 1fr;
     }
