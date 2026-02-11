@@ -1027,8 +1027,11 @@ ul {
 
     .project-gallery-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        /* Tighter gap for sophisticated look */
+        max-width: 800px;
+        /* Limit width for better proportion */
     }
 
     .project-img {
