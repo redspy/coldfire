@@ -103,27 +103,43 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeBtn = document.querySelector('.lightbox-close');
         const projectImages = document.querySelectorAll('.project-img img');
 
-        // Open Lightbox
+        // Open Lightbox (Click & Touch)
         projectImages.forEach(img => {
-            img.addEventListener('click', () => {
+            const openModal = (e) => {
+                e.preventDefault(); // Prevent phantom clicks on touch
+                e.stopPropagation();
                 lightbox.classList.add('active');
                 lightboxImg.src = img.src;
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
+                document.body.style.overflow = 'hidden';
+            };
+
+            img.addEventListener('click', openModal);
+            img.addEventListener('touchend', openModal);
         });
 
-        // Close Lightbox
-        const closeLightbox = () => {
+        // Close Lightbox (Click & Touch)
+        const closeLightbox = (e) => {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
         };
 
         closeBtn.addEventListener('click', closeLightbox);
+        closeBtn.addEventListener('touchend', closeLightbox);
 
         // Close on click outside image
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
-                closeLightbox();
+                closeLightbox(e);
+            }
+        });
+
+        lightbox.addEventListener('touchend', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox(e);
             }
         });
 

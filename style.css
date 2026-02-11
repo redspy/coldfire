@@ -1149,13 +1149,18 @@ ul {
 
 .lightbox-close {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 20px;
+    right: 20px;
     color: #fff;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
+    padding: 20px;
+    /* Increase touch area */
+    line-height: 1;
+    z-index: 2001;
+    /* Ensure it's above image */
 }
 
 .lightbox-close:hover {
