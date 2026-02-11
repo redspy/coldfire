@@ -105,9 +105,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Open Lightbox (Click & Touch)
         projectImages.forEach(img => {
+            let isDragging = false;
+            let startX, startY;
+
+            img.addEventListener('touchstart', (e) => {
+                isDragging = false;
+                if (e.touches.length > 0) {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+
+            img.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    const currentX = e.touches[0].clientX;
+                    const currentY = e.touches[0].clientY;
+                    const diffX = Math.abs(currentX - startX);
+                    const diffY = Math.abs(currentY - startY);
+
+                    // If movement is significant (e.g. scroll), mark as dragging
+                    if (diffX > 10 || diffY > 10) {
+                        isDragging = true;
+                    }
+                }
+            }, { passive: true });
+
             const openModal = (e) => {
-                e.preventDefault(); // Prevent phantom clicks on touch
+                // If it was a drag/scroll operation, ignore
+                if (isDragging) {
+                    isDragging = false;
+                    return;
+                }
+
+                if (e.cancelable) e.preventDefault();
                 e.stopPropagation();
+
                 lightbox.classList.add('active');
                 lightboxImg.src = img.src;
                 document.body.style.overflow = 'hidden';
